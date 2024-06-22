@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permissions Management</title>
+   </head>
+<style>
+    /* Reset basic styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+    .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    header {
+        background: #333;
+        color: #fff;
+        padding-top: 30px;
+        min-height: 70px;
+        border-bottom: #333 3px solid;
+    }
+
+    header a {
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 16px;
+    }
+
+    header ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    header li {
+        display: inline;
+        padding: 0 20px 0 20px;
+    }
+
+    header h1 {
+        float: left;
+        margin-top: 10px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    section {
+        padding: 20px 0;
+    }
+
+    section h2 {
+        font-size: 2em;
+        padding-bottom: 10px;
+        border-bottom: #ccc 1px solid;
+    }
+
+    form {
+        margin-bottom: 20px;
+    }
+
+    form h3 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    form label {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    form select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        font-size: 1em;
+    }
+
+    form button {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+    }
+
+    form button:hover {
+        background-color: #555;
+    }
+
+    footer {
+        background: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    footer p {
+        margin: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .container {
+            width: 100%;
+        }
+
+        header {
+            padding-top: 20px;
+        }
+
+        header h1 {
+            float: none;
+            text-align: center;
+        }
+
+        header ul {
+            overflow: auto;
+        }
+
+        header li {
+            display: block;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        main {
+            padding: 10px;
+        }
+    }
+
+</style>
+<body>
+{% include 'header.html' %}
+
+<main>
+    <!-- Permissions Management Section -->
+    <section id="permissions">
+        <div class="container">
+            <h2>Permissions Management</h2>
+            <!-- Assign Permission Form -->
+            <form action="#" method="post" id="assign-permission-form">
+                {% csrf_token %}
+                <h3>Assign Permission</h3>
+                <label for="assign-role">Role:</label>
+                <select id="assign-role" name="assign-role" required>
+                    <option value="">Select Role</option>
+                    <option value="admin">Admin</option>
+                    <option value="manager">Manager</option>
+                    <option value="sales_rep">Sales Representative</option>
+                    <option value="warehouse_staff">Warehouse Staff</option>
+                    <option value="customer">Customer</option>
+                </select><br><br>
+
+                <label for="assign-permission">Permission:</label>
+                <select id="assign-permission" name="assign-permission" required>
+                    <option value="">Select Permission</option>
+                    <option value="manage_users">Manage Users</option>
+                    <option value="manage_roles">Manage Roles</option>
+                    <option value="manage_permissions">Manage Permissions</option>
+                    <option value="manage_inventory">Manage Inventory</option>
+                    <option value="manage_sales">Manage Sales</option>
+                    <option value="manage_customers">Manage Customers</option>
+                    <option value="manage_settings">Manage Settings</option>
+                </select><br><br>
+
+                <button type="submit">Assign Permission</button>
+            </form>
+
+            <!-- Revoke Permission Form -->
+            <form action="#" method="post" id="revoke-permission-form">
+                <h3>Revoke Permission</h3>
+                <label for="revoke-role">Role:</label>
+                <select id="revoke-role" name="revoke-role" required>
+                    <option value="">Select Role</option>
+                    <option value="admin">Admin</option>
+                    <option value="manager">Manager</option>
+                    <option value="sales_rep">Sales Representative</option>
+                    <option value="warehouse_staff">Warehouse Staff</option>
+                    <option value="customer">Customer</option>
+                </select><br><br>
+
+                <label for="revoke-permission">Permission:</label>
+                <select id="revoke-permission" name="revoke-permission" required>
+                    <option value="">Select Permission</option>
+                    <option value="manage_users">Manage Users</option>
+                    <option value="manage_roles">Manage Roles</option>
+                    <option value="manage_permissions">Manage Permissions</option>
+                    <option value="manage_inventory">Manage Inventory</option>
+                    <option value="manage_sales">Manage Sales</option>
+                    <option value="manage_customers">Manage Customers</option>
+                    <option value="manage_settings">Manage Settings</option>
+                </select><br><br>
+
+                <button type="submit">Revoke Permission</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Admin Panel. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

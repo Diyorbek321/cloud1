@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+</head>
+<style>
+    /* Reset basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #333 3px solid;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    text-align: center;
+}
+
+header li {
+    display: inline;
+    padding: 0 20px 0 20px;
+}
+
+header h1 {
+    float: left;
+    margin-top: 10px;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    padding: 20px 0;
+}
+
+section h2 {
+    font-size: 2em;
+    padding-bottom: 10px;
+    border-bottom: #ccc 1px solid;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+
+    header {
+        padding-top: 20px;
+    }
+
+    header h1 {
+        float: none;
+        text-align: center;
+    }
+
+    header ul {
+        overflow: auto;
+    }
+
+    header li {
+        display: block;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    main {
+        padding: 10px;
+    }
+}
+
+</style>
+<body>
+    {% block content %}
+        {% include 'header.html' %}
+    {% endblock %}
+
+    <main>
+        <!-- Dashboard Section -->
+        <section id="dashboard">
+            <div class="container">
+                <h2>Dashboard</h2>
+                <p>Welcome to the Admin Dashboard. View key metrics and summaries here.</p>
+            </div>
+        </section>
+
+        <!-- Users Management Section -->
+        <section id="users">
+            <div class="container">
+                <h2>Users Management</h2>
+                <p>
+                    Manage users, roles, and permissions.
+                {% for user in users %}    
+                <ul>
+                       <p>{{ user.username }}</p>
+                       <p>{{ user.email }}</p>
+                       
+                    </ul>
+                {% endfor %}
+                </p>
+            </div>
+        </section>
+
+        <!-- Roles Management Section -->
+        <section id="roles">
+            <div class="container">
+                <h2>Roles Management</h2>
+                <p>
+                    Manage roles and their permissions.
+                    <ul>
+                        <li><a href="#add-role">Add New Role</a></li>
+                        <li><a href="#modify-role">Modify Role</a></li>
+                        <li><a href="#remove-role">Remove Role</a></li>
+                    </ul>
+                </p>
+            </div>
+        </section>
+
+        <!-- Permissions Management Section -->
+        <section id="permissions">
+            <div class="container">
+                <h2>Permissions Management</h2>
+                <p>
+                    Manage permissions for roles and users.
+                    <ul>
+                        <li><a href="#assign-permission">Assign Permission</a></li>
+                        <li><a href="#revoke-permission">Revoke Permission</a></li>
+                    </ul>
+                </p>
+            </div>
+        </section>
+
+        <!-- Inventory Management Section -->
+        <section id="inventory">
+            <div class="container">
+                <h2>Inventory Management</h2>
+                <p>
+                    Manage inventory items and settings.
+                    <ul>
+                        <li><a href="#add-inventory">Add Inventory Item</a></li>
+                        <li><a href="#modify-inventory">Modify Inventory Item</a></li>
+                        <li><a href="#remove-inventory">Remove Inventory Item</a></li>
+                    </ul>
+                </p>
+            </div>
+        </section>
+
+        <!-- Sales Management Section -->
+        <section id="sales">
+            <div class="container">
+                <h2>Sales Management</h2>
+                <p>
+                    View sales data and manage sales operations.
+                    <ul>
+                        <li><a href="#view-sales">View Sales</a></li>
+                        <li><a href="#manage-orders">Manage Orders</a></li>
+                        <li><a href="#promotions">Sales Promotions</a></li>
+                    </ul>
+                </p>
+            </div>
+        </section>
+
+        <!-- Customers Management Section -->
+        <section id="customers">
+            <div class="container">
+                <h2>Customers Management</h2>
+                <p>
+                    Manage customer information and interactions.
+                    <ul>
+                        <li><a href="#view-customers">View Customers</a></li>
+                        <li><a href="#edit-customers">Edit Customer Info</a></li>
+                        <li><a href="#delete-customers">Delete Customer</a></li>
+                    </ul>
+                </p>
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settings">
+            <div class="container">
+                <h2>Settings</h2>
+                <p>
+                    Configure system settings and preferences.
+                    <ul>
+                        <li><a href="#system-settings">System Settings</a></li>
+                        <li><a href="#user-preferences">User Preferences</a></li>
+                        <li><a href="#data-management">Data Management</a></li>
+                    </ul>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Admin Panel. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

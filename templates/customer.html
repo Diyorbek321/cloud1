@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers Management</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Include your CSS file here -->
+</head>
+<style>
+    /* Reset basic styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+    .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    header {
+        background: #333;
+        color: #fff;
+        padding-top: 30px;
+        min-height: 70px;
+        border-bottom: #333 3px solid;
+    }
+
+    header a {
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 16px;
+    }
+
+    header ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    header li {
+        display: inline;
+        padding: 0 20px 0 20px;
+    }
+
+    header h1 {
+        float: left;
+        margin-top: 10px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    section {
+        padding: 20px 0;
+    }
+
+    section h2 {
+        font-size: 2em;
+        padding-bottom: 10px;
+        border-bottom: #ccc 1px solid;
+    }
+
+    form {
+        margin-bottom: 20px;
+    }
+
+    form h3 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    form label {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    form input, form textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        font-size: 1em;
+    }
+
+    form button {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+    }
+
+    form button:hover {
+        background-color: #555;
+    }
+
+    footer {
+        background: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    footer p {
+        margin: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .container {
+            width: 100%;
+        }
+
+        header {
+            padding-top: 20px;
+        }
+
+        header h1 {
+            float: none;
+            text-align: center;
+        }
+
+        header ul {
+            overflow: auto;
+        }
+
+        header li {
+            display: block;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        main {
+            padding: 10px;
+        }
+    }
+
+</style>
+<body>
+{% include 'header.html' %}
+
+<main>
+    <!-- Customers Management Section -->
+    <section id="customers">
+        <div class="container">
+            <h2>Customers Management</h2>
+            <!-- Add New Customer Form -->
+            <form action="#" method="post" id="add-customer-form">
+                {% csrf_token %}
+                <h3>Add New Customer</h3>
+                <label for="name">Customer Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required><br><br>
+
+                <button type="submit">Add Customer</button>
+            </form>
+
+            <!-- Modify Customer Form -->
+            <form action="#" method="post" id="modify-customer-form">
+                <h3>Modify Customer</h3>
+                <label for="customer-id">Customer ID:</label>
+                <input type="text" id="customer-id" name="customer-id" required><br><br>
+
+                <label for="new-customer-name">New Customer Name:</label>
+                <input type="text" id="new-customer-name" name="new-customer-name" required><br><br>
+
+                <label for="new-customer-email">New Email:</label>
+                <input type="email" id="new-customer-email" name="new-customer-email" required><br><br>
+
+                <label for="new-customer-phone">New Phone Number:</label>
+                <input type="tel" id="new-customer-phone" name="new-customer-phone" required><br><br>
+
+                <button type="submit">Modify Customer</button>
+            </form>
+
+            <!-- Remove Customer Form -->
+            <form action="#" method="post" id="remove-customer-form">
+                <h3>Remove Customer</h3>
+                <label for="customer-id-remove">Customer ID:</label>
+                <input type="text" id="customer-id-remove" name="customer-id-remove" required><br><br>
+
+                <button type="submit">Remove Customer</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Admin Panel. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

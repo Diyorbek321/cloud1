@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Management</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Include your CSS file here -->
+</head>
+<style>
+    /* Reset basic styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+    .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    header {
+        background: #333;
+        color: #fff;
+        padding-top: 30px;
+        min-height: 70px;
+        border-bottom: #333 3px solid;
+    }
+
+    header a {
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 16px;
+    }
+
+    header ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    header li {
+        display: inline;
+        padding: 0 20px 0 20px;
+    }
+
+    header h1 {
+        float: left;
+        margin-top: 10px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    section {
+        padding: 20px 0;
+    }
+
+    section h2 {
+        font-size: 2em;
+        padding-bottom: 10px;
+        border-bottom: #ccc 1px solid;
+    }
+
+    form {
+        margin-bottom: 20px;
+    }
+
+    form h3 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    form label {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    form input, form select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        font-size: 1em;
+    }
+
+    form button {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+    }
+
+    form button:hover {
+        background-color: #555;
+    }
+
+    footer {
+        background: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    footer p {
+        margin: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .container {
+            width: 100%;
+        }
+
+        header {
+            padding-top: 20px;
+        }
+
+        header h1 {
+            float: none;
+            text-align: center;
+        }
+
+        header ul {
+            overflow: auto;
+        }
+
+        header li {
+            display: block;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        main {
+            padding: 10px;
+        }
+    }
+
+</style>
+<body>
+{% include 'header.html' %}
+
+<main>
+    <!-- Settings Management Section -->
+    <section id="settings">
+        <div class="container">
+            <h2>Settings Management</h2>
+            <!-- System Settings Form -->
+            <form action="#" method="post" id="system-settings-form">
+                <h3>System Settings</h3>
+                <label for="site-name">Site Name:</label>
+                <input type="text" id="site-name" name="site-name" required><br><br>
+
+                <label for="logo-url">Logo URL:</label>
+                <input type="url" id="logo-url" name="logo-url" required><br><br>
+
+                <label for="timezone">Timezone:</label>
+                <select id="timezone" name="timezone" required>
+                    <option value="UTC">UTC</option>
+                    <option value="GMT">GMT</option>
+                    <option value="EST">EST</option>
+                    <option value="PST">PST</option>
+                    <!-- Add more options as needed -->
+                </select><br><br>
+
+                <button type="submit">Save Settings</button>
+            </form>
+
+            <!-- Email Settings Form -->
+            <form action="#" method="post" id="email-settings-form">
+                <h3>Email Settings</h3>
+                <label for="smtp-server">SMTP Server:</label>
+                <input type="text" id="smtp-server" name="smtp-server" required><br><br>
+
+                <label for="smtp-port">SMTP Port:</label>
+                <input type="number" id="smtp-port" name="smtp-port" min="1" required><br><br>
+
+                <label for="email-username">Email Username:</label>
+                <input type="email" id="email-username" name="email-username" required><br><br>
+
+                <label for="email-password">Email Password:</label>
+                <input type="password" id="email-password" name="email-password" required><br><br>
+
+                <button type="submit">Save Email Settings</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Admin Panel. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

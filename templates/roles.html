@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roles Management</title>
+
+</head>
+<style>
+    /* Reset basic styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+    .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    header {
+        background: #333;
+        color: #fff;
+        padding-top: 30px;
+        min-height: 70px;
+        border-bottom: #333 3px solid;
+    }
+
+    header a {
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 16px;
+    }
+
+    header ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    header li {
+        display: inline;
+        padding: 0 20px 0 20px;
+    }
+
+    header h1 {
+        float: left;
+        margin-top: 10px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    section {
+        padding: 20px 0;
+    }
+
+    section h2 {
+        font-size: 2em;
+        padding-bottom: 10px;
+        border-bottom: #ccc 1px solid;
+    }
+
+    form {
+        margin-bottom: 20px;
+    }
+
+    form h3 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    form label {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    form input, form textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        font-size: 1em;
+    }
+
+    form button {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+    }
+
+    form button:hover {
+        background-color: #555;
+    }
+
+    footer {
+        background: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    footer p {
+        margin: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .container {
+            width: 100%;
+        }
+
+        header {
+            padding-top: 20px;
+        }
+
+        header h1 {
+            float: none;
+            text-align: center;
+        }
+
+        header ul {
+            overflow: auto;
+        }
+
+        header li {
+            display: block;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        main {
+            padding: 10px;
+        }
+    }
+
+</style>
+<body>
+{% include 'header.html' %}
+
+<main>
+    <!-- Roles Management Section -->
+    <section id="roles">
+        <div class="container">
+            <h2>Roles Management</h2>
+            <!-- Add New Role Form -->
+            <form action="#" method="post" id="add-role-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Add Role</button>
+            </form>
+
+            <!-- Modify Role Form -->
+            <form action="#" method="post" id="modify-role-form">
+                <h3>Modify Role</h3>
+                <label for="role-id">Role ID:</label>
+                <input type="text" id="role-id" name="role-id" required><br><br>
+
+                <label for="new-role-name">New Role Name:</label>
+                <input type="text" id="new-role-name" name="new-role-name" required><br><br>
+
+                <label for="new-role-description">New Role Description:</label><br>
+                <textarea id="new-role-description" name="new-role-description" rows="4" required></textarea><br><br>
+
+                <button type="submit">Modify Role</button>
+            </form>
+
+            <!-- Remove Role Form -->
+            <form action="#" method="post" id="remove-role-form">
+                <h3>Remove Role</h3>
+                <label for="role-id-remove">Role ID:</label>
+                <input type="text" id="role-id-remove" name="role-id-remove" required><br><br>
+
+                <button type="submit">Remove Role</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Admin Panel. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

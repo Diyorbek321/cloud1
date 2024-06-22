@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permission List</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Permission List</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Content Type</th>
+                    <th>Codename</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for permission in permissions %}
+                <tr>
+                    <td>{{ permission.id }}</td>
+                    <td>{{ permission.name }}</td>
+                    <td>{{ permission.content_type }}</td>
+                    <td>{{ permission.codename }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
